@@ -35,6 +35,9 @@ export type Tag = {
   label: string
 }
 
+console.log('adawdwad')
+
+
 function App() {
   const [notes, setNotes] = useLocalStorage<RawNote[]>("NOTES", [])
   const [tags, setTags] = useLocalStorage<Tag[]>("TAGS", [])
@@ -44,7 +47,7 @@ function App() {
       return { ...note, tags: tags.filter(tag => note.tagIds.includes(tag.id)) }
     })
   }, [notes, tags])
-
+  console.log(notesWithTags, 'notesWithTags')
   function onCreateNote({ tags, ...data }: NoteData) {
     setNotes(prevNotes => {
       return [
